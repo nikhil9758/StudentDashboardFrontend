@@ -20,7 +20,7 @@ const Landing = () => {
   // )
   
   return (
-    <div>Landing
+    <div>
         <CourseList/>
     </div>
   )

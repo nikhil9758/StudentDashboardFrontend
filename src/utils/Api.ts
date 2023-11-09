@@ -14,5 +14,5 @@ import axios from "axios"
 // }
     
 export const customFetch=axios.create({
-    baseURL:'https://student-dashboard-backend-mz3y.onrender.com/'
+    baseURL:'http://localhost:8000/'
 })

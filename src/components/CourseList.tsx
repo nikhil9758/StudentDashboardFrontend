@@ -32,12 +32,14 @@ const CourseList: React.FC = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredCourses.map((course) => (
-          <CourseCard key={course.id} course={course} />
-        ))}
-        <button onClick={()=>{signOut(auth)}}>signout</button>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+         {/* <div className='flex items-strech'> */}
+            {filteredCourses.map((course) => (
+              <CourseCard key={course.id} course={course} />
+            ))}
+         {/* </div> */}
       </div>
+        <button className='text-white bg-red-800 p-2 w-full mt-8' onClick={()=>{signOut(auth)}}>SignOut</button>
     </div>
   );
 };

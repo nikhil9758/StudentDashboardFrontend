@@ -44,11 +44,11 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
     // dispatch(updateEnrolledCourse(course?.id))
   }
   return (
-    <div>
-        <div className="border p-4 cursor-pointer" onClick={showCourseDetails}>
+    <div className='h-full'>
+        <div className="border p-4 cursor-pointer h-80" onClick={showCourseDetails}>
           <h2 className="text-xl font-semibold mb-2">{course?.name}</h2>
           <p className="text-gray-600">Instructor: {course?.Instructor}</p>
-          <p>{course?.Description}</p>
+          <p>{course?.Description?.length||2>50?`${course?.Description.substring(0,50)}....`:course?.Description}</p>
         </div>
         <button className={enrolledcourseButton} disabled={isEnrolled} onClick={handleOnClick}>{isEnrolled?'Enrolled':'Enroll'}</button>
     </div>
