@@ -8,8 +8,6 @@ import CourseDetails from './components/CourseDetails';
 import { Provider } from 'react-redux';
 import store from './Store';
 import { initializeApp } from 'firebase/app';
-
-import NewLogin from './pages/NewLogin';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import FirebaseContext from './Context/FirebaseContext';

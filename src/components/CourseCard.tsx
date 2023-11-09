@@ -29,7 +29,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
     try {
       console.log("enrolling")
       //here user click on enroll the course
-      await customFetch.post('enroll/',{
+      await axios.post('http://localhost:8000/enrollments/enroll',{
         "studentId":Currentuser?.uid,
         "courseId":course?.id.toString()
       })

@@ -2,6 +2,7 @@ import React, { useContext,useState } from 'react'
 import { AuthContext } from '../Context/FirebaseContext'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import {Link, useNavigate} from 'react-router-dom'
+import { customFetch } from '../utils/Api'
 
 const auth=getAuth()
 const SignUp = () => {
@@ -11,8 +12,11 @@ const[password,setPassword]= useState<string>('')
 // const {currentUser}=useContext(AuthContext)
 const handleonsubmit=(e:React.SyntheticEvent)=>{
     e.preventDefault()
-    console.log(email,password)
+    console.log(email,password,auth?.currentUser?.uid)
     createUserWithEmailAndPassword(auth,email,password).then(()=>{
+        customFetch.post('enrollments/createcourse',{
+            "studentId":auth?.currentUser?.uid
+        })
         navigate('/')
     })
 }
